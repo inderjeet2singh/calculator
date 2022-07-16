@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/new.css">
+    <title>calculator</title>
+    <link rel="shortcut icon" href="../image/calculate_black_18dp.svg" type="image/x-icon">
+</head>
+<body onkeydown="pres(event)">
+    <div class="fullStruc" >
+                <!-- mode start -->
+    <div class="mode" id="modeId">
+        <div class="inner_mode" id="inner_modeId">
+            <div class="imgs">
+                <img src="../image/light_mode_black_24dp.svg" alt="" height="22px" onclick="lightMode()"  class="day" id="dayId">
+            </div>
+            <div  class="imgs">
+                <img src="../image/dark_mode_black_24dp.svg" alt="" height="22px" onclick="darkMode()" class="night" id="nightId">
+            </div>
+        </div>
+    </div>
+                <!-- mode end -->
+    <div class="contain" id="containId">
+                          <!-- result blocks start -->
+        <div class="txtField">
+            <div class="txt_Fields memryCl" id="memry" ></div>
+            <div class="txt_Fields resCl" id="res">0</div>
+        </div>
+                        <!-- result blocks end -->
+
+                        <!-- button block start -->
+        <div class="cal" id="calId">
+            <div class="btn-cont" id="btn1">
+                <div  class="btns ac" id="acId" onclick="btnClear()">AC</div>
+                <div class="btns">
+                    <img src="../image/left-parenthesis.svg" alt="" height="30px"  class=" svgImg" onclick="btnBrac('(')">
+                </div>
+                <div class="btns">
+
+                    <img src="../image/right-bracket (1).svg" alt="" height="30px" class= "svgImg" onclick="btnBrac(')')">
+                </div>
+                <div class="btns">
+
+                    <img src="../image/division-sign.svg" alt="" height="30px"  class=" numb svgImg" onclick="btnOprter('/')">
+                </div>
+            </div>
+            <div class="btn-cont" id="btn2">
+                <div class="btns no"  onclick="btnNumbr(7)">7</div>
+                <div class="btns no"  onclick="btnNumbr(8)">8</div>
+                <div class="btns no"  onclick="btnNumbr(9)">9</div>
+                <div class="btns">
+                    <img src="../image/close_black_24dp.svg" alt="" class=" numb svgImg" onclick="btnOprter('*')">
+
+                </div>
+            </div>
+            <div class="btn-cont" id="btn3">
+                <div class="btns no" onclick="btnNumbr(4)">4</div>
+                <div class="btns no" onclick="btnNumbr(5)">5</div>
+                <div class="btns no" onclick="btnNumbr(6)">6</div>
+                <div class="btns">
+
+                    <img src="../image/remove_black_24dp.svg" alt="" class=" numb svgImg" onclick="btnOprter('-')">
+                </div>
+            </div>
+            <div class="btn-cont" id="btn4">
+                <div class="btns no" onclick="btnNumbr(1)">1</div>
+                <div class="btns no" onclick="btnNumbr(2)">2</div>
+                <div class="btns no" onclick="btnNumbr(3)">3</div>
+                <div class="btns">
+
+                    <img src="../image/add_FILL0_wght400_GRAD0_opsz48.svg" alt="" class=" numb svgImg " onclick="btnOprter('+')">
+                </div>
+            </div>
+            <div class="btn-cont" id="btn5">
+                <div class="btns">
+
+                    <img src="../image/backspace_FILL0_wght400_GRAD0_opsz48.svg" alt="" class=" svgImg" onclick="btnBack()">
+                </div>
+                <div class="btns no" onclick="btnNumbr(0)">0</div>
+                <div class="btns">
+
+                    <img src="../image/dot-17.svg" alt="" height="30px" class=" svgImg" onclick="btnDot('.')">
+                </div>
+                <div class="btns">
+
+                    <img src="../image/equal-5.svg" alt="" height="30px" class=" eql svgImg" onclick="btnEql1()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../javascript/new.js"></script>
+<script src="../javascript/index.js"></script>
+    <script src="../javascript/evelPost.js"></script>
+    <script src="../javascript/inTOPost.js"></script>
+    <script>
+        var inPost="";
+        function btnEql1()
+        {
+            // console.log();
+            console.log(str1);
+            if(str1=="")
+            {
+                document.getElementById('res').innerHTML="0";
+                // str1+="=";
+                document.getElementById('memry').innerHTML="0";
+            }
+            else if(temp3==0)
+            {
+                document.getElementById('res').innerHTML=document.getElementById('res').innerHTML;
+            }
+            else 
+            {
+                console.log("str1 = ",str1);
+                inPost=execution(str1);
+                console.log(inPost);
+                var ttotal=finalResult(inPost);
+                console.log(ttotal);
+                document.getElementById('res').innerHTML=ttotal;
+                str1+="=";
+                document.getElementById('memry').innerHTML=str1;
+                temp2=0;
+                temp=0;
+                str1=ttotal+"";
+                temp3=0;
+                str1="";
+            }
+
+        }
+    </script>
+</body>
+</html>
